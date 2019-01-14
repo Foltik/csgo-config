@@ -85,7 +85,6 @@ function ns_exec(nade) {
 		local info = saved[throwing];
 		nade.SetAbsOrigin(info.pos);
 		nade.SetVelocity(info.vel);
-		ScriptPrintMessageCenterAll("Threw " + throwing);
 		throwing = "";
 	}
 	
@@ -93,14 +92,25 @@ function ns_exec(nade) {
 }
 
 function ns_save(key = "quicksave") {
+	if (typeof key != "string")
+		key = key.tostring();
+		
 	saving = key;
+	throwing = "";
+	ScriptPrintMessageCenterAll("Saving " + key + "...");
 }
 
 function ns_throw(key = "quicksave") {
-    if (key in saved)
+	if (typeof key != "string")
+		key = key.tostring();
+
+    if (key in saved) {
 		throwing = key;
-	else
-	    ScriptPrintMessageCenterAll("Not found.");
+		saving = "";
+		ScriptPrintMessageCenterAll("Throwing " + key);
+	} else {
+		ScriptPrintMessageCenterAll("Not found.");
+	}
 }
 
 function ns_clear() {
