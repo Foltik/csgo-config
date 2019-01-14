@@ -5,13 +5,8 @@
  * 
  * goes into /csgo/scripts/vscripts/nadesave.nut
  *
- * USAGE, in console:
- *  script_execute nadesave
- *	script ns_setup()
- * 	bind "anykey" "script ns_save()"
- *	bind "anykey" "script ns_pause()"
- * Press the ns_save() key before every nade you want to save, all following nades will fly the same path.
- * regardless of how you throw them. To pause the script and throw nades freely use the other bind ns_pause().
+ * to run:
+ *   script_execute nadesave
  */
 
 this.saved		<- {};
